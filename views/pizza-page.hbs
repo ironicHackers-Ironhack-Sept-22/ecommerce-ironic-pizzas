@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IronicPizzas</title>
 
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+<h1>{{title}}</h1>
 
-</head>
-<body>
-
-    <h1>{{title}}</h1>
-
+{{#if price}}
     <h3>Price: {{price}}€</h3>
+{{else}}
+    <h3>Price TBC</h3>
+{{/if}}
 
-    <img class="full-width" src="/images/{{imgFile}}" />
-    
-</body>
-</html>
+
+
+{{#if ingredients}}
+    <h3>Ingredients:</h3>
+
+    <ul>
+        {{#each ingredients}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+{{/if}}
+
+
+<img class="full-width" src="/images/{{imgFile}}" />

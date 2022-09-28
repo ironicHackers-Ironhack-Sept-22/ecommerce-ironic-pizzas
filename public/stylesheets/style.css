@@ -8,6 +8,14 @@ h1 {
     margin: 2rem auto;
 }
 
+ul {
+    list-style-position: inside;
+}
+
+nav a {
+    padding: 3rem 1rem;
+}
+
 img.full-width {
     max-width: 100%;
 }

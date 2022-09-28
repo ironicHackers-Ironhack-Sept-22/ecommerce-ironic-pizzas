@@ -11,13 +11,13 @@ app.set("view engine", "hbs"); //sets HBS as the template engine
 app.get("/", (req, res, next) => {
     console.log("this is the homepage");    
     // res.send("hello world");
-    res.sendFile(__dirname + '/views/index.html');
+    res.render("index");
 });
 
 
 app.get("/contact", (req, res, next) => {
     console.log("this is the contact page");
-    res.sendFile(__dirname + '/views/contact-page.html');
+    res.render("contact-page");
 });
 
 
@@ -28,7 +28,8 @@ app.get("/pizzas/margherita", (req, res, next) => {
     const data = {
         title: "Pizza Margherita",
         price: 8,
-        imgFile: "pizza-margherita.jpg"
+        imgFile: "pizza-margherita.jpg",
+        ingredients: ["mozzarella", "tomato sauce", "basilicum"]
     }
 
     res.render("pizza-page", data);
@@ -51,8 +52,8 @@ app.get("/pizzas/funghi", (req, res, next) => {
 
     const data = {
         title: "Pizza Funghi",
-        price: 10,
-        imgFile: "pizza-funghi.jpg"
+        imgFile: "pizza-funghi.jpg",
+        ingredients: ["funghi", "mozzarella", "tomato", "basilicum"]
     }
 
     res.render("pizza-page", data);
