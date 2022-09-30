@@ -8,7 +8,7 @@ mongoose
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
 
         const detailsOne = {
-            title: "pizza margaritta", 
+            title: "margherita", 
             price: 8,
             isVeggie: true,
             dough: "thin"
@@ -23,8 +23,8 @@ mongoose
 
 
         const arrayOfPizzas = [
-            { title: "pizza carbonara",  price: 10 },
-            { title: "pizza funghi",  price: 12 }
+            { title: "carbonara",  price: 10 },
+            { title: "funghi",  price: 12 }
         ]
 
         return Pizza.insertMany(arrayOfPizzas);
