@@ -1,4 +1,5 @@
 const express = require("express");
+const hbs = require("hbs");
 
 const app = express();
 
@@ -6,6 +7,9 @@ app.use(express.static('public')); // Make everything inside of public/ availabl
 
 app.set("views", __dirname + "/views"); //tells our Express app where to look for our views
 app.set("view engine", "hbs"); //sets HBS as the template engine
+
+
+hbs.registerPartials(__dirname + "/views/partials"); // config partials
 
 
 app.get("/", (req, res, next) => {
