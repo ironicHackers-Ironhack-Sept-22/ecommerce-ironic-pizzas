@@ -16,6 +16,17 @@ nav a {
     padding: 3rem 1rem;
 }
 
+form {
+    border: 1px solid #333;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+form input, form button {
+    display: block;
+    margin: 1rem auto;
+}
+
 img.full-width {
     max-width: 100%;
 }

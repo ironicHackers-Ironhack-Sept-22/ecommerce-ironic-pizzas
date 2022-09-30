@@ -1,0 +1,14 @@
+<h1>Search results: </h1>
+
+
+{{#each pizzasArr}}
+    <section>
+        <h3>{{title}}</h3>
+        <p>Price: {{price}}€</p>
+
+        <p>Is veggie: {{isVeggie}}</p>
+
+    </section>
+{{else}}
+    <h3>Sorry, no results for this search.</h3>
+{{/each}}

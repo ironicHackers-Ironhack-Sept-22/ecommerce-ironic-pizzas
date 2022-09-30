@@ -46,18 +46,20 @@ app.get("/contact", (req, res, next) => {
 });
 
 
-app.get("/pizzas/margherita", (req, res, next) => {
-    //res.send("hello")
-    //res.sendFile(__dirname + '/views/pizza-margherita.html');
+app.get("/search", (req, res, next) => {
 
-    const data = {
-        title: "Pizza Margherita",
-        price: 8,
-        imgFile: "pizza-margherita.jpg",
-        ingredients: ["mozzarella", "tomato sauce", "basilicum"]
-    }
+    // const maxPrice = req.query.maxPrice;
+    let {maxPrice} = req.query;
+    maxPrice = Number(maxPrice);
 
-    res.render("pizza-page", data);
+
+    Pizza.find({price: {$lte: maxPrice} })
+        .then((pizzasFromDB) => {
+            res.render("search", {pizzasArr: pizzasFromDB});
+        })
+        .catch((err) => {
+            console.log("Error getting pizzas from DB", err)
+        });
 });
 
 
