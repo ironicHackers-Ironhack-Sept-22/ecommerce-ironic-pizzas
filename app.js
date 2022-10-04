@@ -1,13 +1,16 @@
 const express = require("express");
 const hbs = require("hbs");
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const Pizza = require("./models/Pizza.model");
+const { response } = require("express");
 
 
 const app = express();
 
 app.use(express.static('public')); // Make everything inside of public/ available
+app.use(bodyParser.urlencoded({ extended: true })); // config body parser
 
 app.set("views", __dirname + "/views"); //tells our Express app where to look for our views
 app.set("view engine", "hbs"); //sets HBS as the template engine
@@ -80,6 +83,14 @@ app.get("/pizzas/:pizzaTitle", (req, res, next) => {
     
 });
 
+
+app.post("/login", (req, res, next) => {
+
+    const {email, pw} = req.body;
+
+    res.send(`Hello ${email} we've received your request to login but we don't like your password.`);
+
+});
 
 
 
